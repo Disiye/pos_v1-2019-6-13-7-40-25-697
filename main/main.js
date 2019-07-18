@@ -1,6 +1,6 @@
 'use strict';
 
-//expect : 15min    actual:19min
+//expect : 12min    actual : 16min
 function printReceipt(tags) {
     var allItems = loadAllItems();
     let promotion = loadPromotions()[0].barcodes;
@@ -9,6 +9,7 @@ function printReceipt(tags) {
     console.log(receiptString);
 }
 
+//expect : 15min    actual : 19min
 function findShoppingCartByBarcode(tags, allItems, promotion) {
     let orderArr = [];
     let itemAndCount = getShoppingCartCount(tags);
@@ -33,6 +34,7 @@ function findShoppingCartByBarcode(tags, allItems, promotion) {
     return orderArr;
 }
 
+//expect : 25min    actual : 20min
 function getShoppingCartCount(tags) {
     let barcode, barcodeCount;
     return tags.reduce(function (items, tagsBarcode) {
@@ -53,7 +55,7 @@ function getTwoDecimal(num) {
     return num.toFixed(2);
 }
 
-
+//expect : 20min    actual : 25min
 function printReceiptString(orderArr) {
     let receipt = "***<没钱赚商店>收据***\n";
     var totalMoney = 0;
